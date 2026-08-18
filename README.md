@@ -1,1 +1,1 @@
-smooth path
+gentle path
