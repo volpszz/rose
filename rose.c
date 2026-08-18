@@ -94,7 +94,7 @@ static void modo_decrypt(void) {
     }
  
     char codigo[TAM_MAX];
-    printf("Digite o codigo secreto (1school):   ");
+    printf("Digite suave o codigo secreto :   ");
     ler_linha(codigo, sizeof(codigo));
     size_t tam_codigo = strlen(codigo);
  
