@@ -5,7 +5,7 @@
 #define ARQUIVO_SAIDA "senha.enc"
 #define TAM_MAX 256
  
-/* Le uma linha do teclado sem deixar o \n no final */
+
 static void ler_linha(char *buf, size_t tam) {
     if (fgets(buf, (int)tam, stdin) != NULL) {
         size_t len = strlen(buf);
@@ -15,7 +15,7 @@ static void ler_linha(char *buf, size_t tam) {
     }
 }
  
-/* XOR simples: aplica a chave (em ciclo) sobre os bytes do texto */
+
 static void xor_cifra(unsigned char *dados, size_t tam_dados,
                        const unsigned char *chave, size_t tam_chave) {
     for (size_t i = 0; i < tam_dados; i++) {
@@ -23,8 +23,7 @@ static void xor_cifra(unsigned char *dados, size_t tam_dados,
     }
 }
  
-/* Checksum simples (soma dos bytes) usado so para validar o codigo
- * na hora de descriptografar, nao tem valor criptografico real */
+
 static unsigned char calcular_checksum(const unsigned char *dados, size_t tam) {
     unsigned char soma = 0;
     for (size_t i = 0; i < tam; i++) {
@@ -63,7 +62,7 @@ static void modo_encrypt(void) {
         return;
     }
  
-    /* grava: tamanho da senha (1 byte), checksum (1 byte), depois os bytes cifrados */
+    
     unsigned char tam_byte = (unsigned char)tam_senha;
     fwrite(&tam_byte, 1, 1, f);
     fwrite(&checksum, 1, 1, f);
@@ -95,7 +94,7 @@ static void modo_decrypt(void) {
     }
  
     char codigo[TAM_MAX];
-    printf("Digite o codigo secreto: ");
+    printf("Digite o codigo secreto (1school):   ");
     ler_linha(codigo, sizeof(codigo));
     size_t tam_codigo = strlen(codigo);
  
