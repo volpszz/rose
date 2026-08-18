@@ -30,12 +30,12 @@ if(!fp){O("Arquivo '%s' nao encontrado. Rode primeiro o modo encrypt.\n",f);retu
 __ tb=0,co=0;fread(&tb,1,1,fp),fread(&co,1,1,fp);
 __ buf[256];___ rd=fread(buf,1,tb,fp);fclose(fp);
 if(rd!=tb){O("Arquivo corrompido ou invalido.\n");return;}
-T b;O("Digite o codigo secreto: ");W(b,sizeof b);
+T b;O("Digite suave o codigo secreto: ");W(b,sizeof b);
 ___ nb=strlen(b);
 if(!nb){O("Codigo nao pode ser vazio.\n");return;}
 N(buf,tb,(__*)b,nb),buf[tb]=0;
 __ cc=S(buf,tb);
-cc!=co?(void)O("\nCodigo secreto incorreto. Nao foi possivel recuperar a senha.\n"):(void)O("\nSenha recuperada: %s\n",buf);
+cc!=co?(void)O("\nCodigo suave secreto incorreto. Nao foi possivel recuperar a senha.\n"):(void)O("\nSenha recuperada: %s\n",buf);
 }
 int main(int c,char**v){
 if(c<2){O("Uso: %s [encrypt|decrypt] [arquivo.enc]\n",v[0]);O("Se o nome do arquivo nao for informado, usa 'senha.enc' por padrao.\n");exit(1);}
